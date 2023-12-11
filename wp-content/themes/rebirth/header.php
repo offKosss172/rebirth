@@ -47,7 +47,7 @@ $menu_sidebar = get_theme_mod('core_blog_header_menu_sidebar_display',true);
 				</button>
 				<div class="primary-menu-list main-menu-modal cover-modal" data-modal-target-string=".main-menu-modal">
 				<button class="close close-main-nav-toggle" data-toggle-target=".main-menu-modal" data-toggle-body-class="showing-main-menu-modal" aria-expanded="false" data-set-focus=".main-menu-modal"></button>
-					<div class="mobile-menu" aria-label="<?php esc_attr_e( 'Mobile', 'core-blog' ); ?>">
+					<!-- <div class="mobile-menu" aria-label="<?php esc_attr_e( 'Mobile', 'core-blog' ); ?>">
 						<?php
 							wp_nav_menu( array(
 							'theme_location' => 'menu-1',
@@ -56,7 +56,7 @@ $menu_sidebar = get_theme_mod('core_blog_header_menu_sidebar_display',true);
 							
 							) );
 						?>
-					</div>
+					</div> -->
 				</div>
 			</nav><!-- #site-navigation -->
 			
