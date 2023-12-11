@@ -5,7 +5,6 @@ Template Name: Strategic Partners
 
 
 
-
 get_header();
 ?>
 	<main >

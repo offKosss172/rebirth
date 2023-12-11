@@ -1,6 +1,6 @@
 <?php
 /**
-Template Name: Industry Partners
+Template Name: Service Partners
 **/
 
 
@@ -10,11 +10,11 @@ get_header();
 		 
 	<section class="strategic_partners__page">
 		<div class="strategic_partners__contant">
-			<h2> <b>Industry</b> partners</h2>
+			<h2> <b>service</b> partners</h2>
 			<div class="strategic_partners__cards">
 					<?php
 				$args = array(
-					'post_type' => 'industryc_partners',
+					'post_type' => 'service_partners',
 					'posts_per_page' => -1,
 					
 				);
