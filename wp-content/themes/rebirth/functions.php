@@ -281,3 +281,10 @@ require_once( trailingslashit( get_template_directory() ) . '/inc/custom-button/
 if ( is_admin() ) {
 	require get_parent_theme_file_path( 'inc/about.php' );
 }
+
+
+
+
+
+
+

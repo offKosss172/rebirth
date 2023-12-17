@@ -47,18 +47,22 @@ $menu_sidebar = get_theme_mod('core_blog_header_menu_sidebar_display',true);
 				</button>
 				<div class="primary-menu-list main-menu-modal cover-modal" data-modal-target-string=".main-menu-modal">
 				<button class="close close-main-nav-toggle" data-toggle-target=".main-menu-modal" data-toggle-body-class="showing-main-menu-modal" aria-expanded="false" data-set-focus=".main-menu-modal"></button>
-					<!-- <div class="mobile-menu" aria-label="<?php esc_attr_e( 'Mobile', 'core-blog' ); ?>">
-						<?php
-							wp_nav_menu( array(
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-							'menu_class'     => 'nav-menu main-menu-modal',
-							
-							) );
-						?>
-					</div> -->
+					<div class="header__menu-general">
+						<ul>
+							<li><a href="#YourBenefit">Who we are</a></li>
+							<li><a href="#YourBenefit">What we do</a></li>
+						</ul>
+						<span>1</span>
+						<ul>
+							<li><a href="#YourBenefit">Our impact</a></li>
+							<li><a href="#YourBenefit">Get involved</a></li>
+						</ul>
+
+					</div>
+				
+				
 				</div>
-			</nav><!-- #site-navigation -->
+			</nav>
 			
 			<?php if($search_icon!='' || $menu_sidebar!=''){?>
 			<nav class="main">
