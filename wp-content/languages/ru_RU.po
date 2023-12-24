@@ -6771,9 +6771,7 @@ msgstr "Не удалось обновить значение мета для %s
 msgid "When registering an \"array\" meta type to show in the REST API, you must specify the schema for each array item in \"show_in_rest.schema.items\"."
 msgstr "При регистрации метатипа \"массив\" для отображения через REST API вы должны указать схему для каждого элемента массива в \"show_in_rest.schema.items\"."
 
-#: wp-includes/widgets/class-wp-widget-meta.php:75
-msgid "Comments feed"
-msgstr "Лента комментариев"
+
 
 #: wp-includes/widgets/class-wp-widget-meta.php:74
 msgid "Entries feed"
@@ -18148,9 +18146,7 @@ msgstr "Следующая запись"
 msgid "Previous Post"
 msgstr "Предыдущая запись"
 
-#: wp-includes/link-template.php:840
-msgid "Comments Feed"
-msgstr "Лента комментариев"
+
 
 #: wp-includes/class-wp-editor.php:1386
 msgid "Insert Page Break tag"
@@ -18583,15 +18579,7 @@ msgstr "%1$s %2$s Лента метки %3$s"
 msgid "%1$s %2$s %3$s Category Feed"
 msgstr "%1$s %2$s Лента рубрики %3$s"
 
-#. translators: 1: Site name, 2: Separator (raquo), 3: Post title.
-#: wp-includes/general-template.php:3155
-msgid "%1$s %2$s %3$s Comments Feed"
-msgstr "%1$s %2$s Лента комментариев к &laquo;%3$s&raquo;"
 
-#. translators: 1: Site title, 2: Separator (raquo).
-#: wp-includes/general-template.php:3105
-msgid "%1$s %2$s Comments Feed"
-msgstr "%1$s %2$s Лента комментариев"
 
 #. translators: 1: Site title, 2: Separator (raquo).
 #: wp-includes/general-template.php:3103

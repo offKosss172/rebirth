@@ -1,7 +1,6 @@
-<!-- ambassdors.php -->
-
+ <!-- ambassdors.php -->
 <section class="our-global-ambassdors">
-    <h2> <b>OUR</b> GLOBAL AMBASSDORS</h2>
+    <h2> <b>OUR</b> GLOBAL Ambassadors</h2>
     <div class="global-ambassdors__contant Our-global-ambassdors__cards-wrapper">
         <div class="Our-global-ambassdors__cards-slider" id="ambassdors-slider">
             <?php
@@ -18,13 +17,13 @@
                 while ($query->have_posts()) {
                     $query->the_post();
 
-                    echo '<div class="team-member">';
+                    echo '<div class="team-member-amb">';
                     echo '<div class="team-member-photo">' . get_the_post_thumbnail() . '</div>';
                     echo '<h3>' . get_the_title() . '</h3>';
 
                     $footnotes = get_post_meta(get_the_ID(), 'footnotes', true);
                     if (!empty($footnotes)) {
-                        echo '<a href="' . esc_url($footnotes) . '"></a>';
+                        echo '<a href="' . esc_url($footnotes) . '" target="_blank"></a>';
                     }
                     echo '</div>';
                 }
@@ -35,106 +34,115 @@
             ?>
         </div>
         <div class="slider-nav">
-        <button class="prev-slide-a" onclick="changeAmbassdorsSlide(-1)">❮</button>
-<button class="next-slide-a" onclick="changeAmbassdorsSlide(1)">❯</button>
-
+            <button class="prev-slide-a">❮</button>
+            <button class="next-slide-a">❯</button>
+        </div>
+        <div class="slider-pagination-amb">
+            
         </div>
     </div>
 
+
     <script>
-        let currentAmbassdorsSlide = 0;
-        const ambassdorsSlider = document.querySelector('.Our-global-ambassdors__cards-slider');
-        const ambassdorsSlides = document.querySelectorAll('.team-member');
-        const ambassdorsSlideWidth = ambassdorsSlides[0].offsetWidth + 19;
-        const maxAmbassdorsSlides = ambassdorsSlides.length;
-        const visibleAmbassdorsSlides = 1;
+      document.addEventListener('DOMContentLoaded', function () {
+    const sliderContainer = document.querySelector('.Our-global-ambassdors__cards-slider');
+    const slides = document.querySelectorAll('.team-member-amb');
+    const slideWidth = slides[0].offsetWidth + 19;
+    const gap = 43; // Расстояние между карточками
+    let visibleSlides;
 
-        function changeAmbassdorsSlide(direction) {
-            const newSlide = currentAmbassdorsSlide + direction;
+    function updateVisibleSlides() {
+        const screenWidth = window.innerWidth;
 
-            if (newSlide >= 0 && newSlide <= maxAmbassdorsSlides - visibleAmbassdorsSlides) {
-                currentAmbassdorsSlide = newSlide;
-            } else if (newSlide < 0) {
-                currentAmbassdorsSlide = 0;
-            } else {
-                currentAmbassdorsSlide = maxAmbassdorsSlides - visibleAmbassdorsSlides;
-            }
+        if (screenWidth >= 1280) {
+            visibleSlides = 4;
+        } else if (screenWidth <= 500) {
+            visibleSlides = 1;
+        } else {
+            visibleSlides = 3;
+        }
+    }
+    
+    updateVisibleSlides();
+    let currentSlide = 0;
+    let paginationItems = [];
 
-            const newPosition = -currentAmbassdorsSlide/2 * (ambassdorsSlideWidth + 45);
-            ambassdorsSlider.style.transform = `translateX(${newPosition}px)`;
+    function updateSlider() {
+        const newPosition = -(currentSlide * (slideWidth + gap));
+        sliderContainer.style.transform = `translateX(${newPosition}px)`;
+    }
 
-            updateAmbassdorsButtons();
+    function updateButtons() {
+        console.log(visibleSlides)
+        const prevButton = document.querySelector('.prev-slide-a');
+        const nextButton = document.querySelector('.next-slide-a');
+
+        prevButton.disabled = currentSlide === 0;
+        nextButton.disabled = currentSlide >= slides.length - visibleSlides;
+
+        prevButton.disabled = currentSlide <= 0;
+    }
+
+    function updatePagination() {
+        paginationItems.forEach((item, index) => {
+            item.classList.toggle('active-slide', index === currentSlide);
+        });
+    }
+
+    function initPagination() {
+        const paginationContainer = document.querySelector('.slider-pagination-amb');
+
+        for (let i = 0; i < slides.length - visibleSlides + 1; i++) {
+            const paginationItem = document.createElement('span');
+            paginationItem.className = 'pagination-item';
+            paginationItem.addEventListener('click', function () {
+                currentSlide = i;
+                updateSlider();
+                updatePagination();
+                updateButtons();
+            });
+            paginationContainer.appendChild(paginationItem);
+            paginationItems.push(paginationItem);
         }
 
-        function updateAmbassdorsButtons() {
-            const prevAmbassdorsButton = document.querySelector('.prev-slide-a');
-            const nextAmbassdorsButton = document.querySelector('.next-slide-a');
+        updatePagination();
+    }
 
-            prevAmbassdorsButton.disabled = currentAmbassdorsSlide === 0;
-            nextAmbassdorsButton.disabled = currentAmbassdorsSlide >= maxAmbassdorsSlides - visibleAmbassdorsSlides -3;
+    function updateOnResize() {
+        updateVisibleSlides();
+        updateSlider();
+        updateButtons();
+        initPagination();
+    }
+
+    document.querySelector('.prev-slide-a').addEventListener('click', function () {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateSlider();
+            updateButtons();
+            updatePagination();
         }
+    });
 
-        document.querySelector('.prev-slide-a').addEventListener('click', function () {
-            changeAmbassdorsSlide(-1);
-        });
+    document.querySelector('.next-slide-a').addEventListener('click', function () {
+        if (currentSlide < slides.length - visibleSlides) {
+            currentSlide++;
+            updateSlider();
+            updateButtons();
+            updatePagination();
+        }
+    });
 
-        document.querySelector('.next-slide-a').addEventListener('click', function () {
-            changeAmbassdorsSlide(1);
-        });
+    window.addEventListener('resize', updateOnResize);
 
-        updateAmbassdorsButtons();
+    // Вызываем функции после определения currentSlide
+    updateButtons();
+    initPagination();
+});
 
     </script>
 
+
+
 </section>
-
-<style>
-    .our-global-ambassdors{
-        position: relative;
-    }
-    .Our-global-ambassdors__cards-wrapper {
-        overflow: hidden;
-    }
-
-    .Our-global-ambassdors__cards-slider {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        gap: 44px;
-    }
-
-    .team-member {
-        width: 272px;
-        height: 491px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-right: 20px;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .slider-nav {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-    }
-
-.prev-slide-a,
-.next-slide-a {
-	position: absolute;
-	color: #012C65;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: -webkit-xxx-large;  
-
-}
-.next-slide-a{
-	top: 210px;
-    right: -80px;
-}
-.prev-slide-a{
-	top: 210px;
-    left: -70px;
-}
-
-</style>
 

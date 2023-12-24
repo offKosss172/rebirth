@@ -20,24 +20,7 @@ $menu_sidebar = get_theme_mod('core_blog_header_menu_sidebar_display',true);
 	<div id="wrapper">
 		<!-- Header -->
 		<header id="header" class="<?php if(is_user_logged_in() && is_customize_preview()) { ?> core-blog-customizer <?php } if(is_user_logged_in()) { ?>core-blog-header<?php }  ?>"> 
-			<div class="title_desc">
-			<?php
-					the_custom_logo();
-					if ( is_front_page() && is_home() ) :
-						?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<?php
-					else :
-						?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<?php
-					endif;
-					$core_blog_description = get_bloginfo( 'description', 'display' );
-					if ( $core_blog_description || is_customize_preview() ) :
-						?>
-						<p class="site-description"><?php echo esc_html($core_blog_description); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-			</div>
+			<div class="logo-burger-head"></div>
 			<nav id="site-navigation" class="core-blog-main-navigation">
 				<button class="toggle-button" data-toggle-target=".main-menu-modal" data-toggle-body-class="showing-main-menu-modal" aria-expanded="false" data-set-focus=".close-main-nav-toggle">
 				<div class="toggle-text"></div>
@@ -49,13 +32,13 @@ $menu_sidebar = get_theme_mod('core_blog_header_menu_sidebar_display',true);
 				<button class="close close-main-nav-toggle" data-toggle-target=".main-menu-modal" data-toggle-body-class="showing-main-menu-modal" aria-expanded="false" data-set-focus=".main-menu-modal"></button>
 					<div class="header__menu-general">
 						<ul>
-							<li><a href="#YourBenefit">Who we are</a></li>
-							<li><a href="#YourBenefit">What we do</a></li>
+							<li><a href="#whoWeAre">Who we are</a></li>
+							<li><a href="#whatWeDo">What we do</a></li>
 						</ul>
-						<span>1</span>
+						<span></span>
 						<ul>
-							<li><a href="#YourBenefit">Our impact</a></li>
-							<li><a href="#YourBenefit">Get involved</a></li>
+							<li><a href="#ourImpact">Our impact</a></li>
+							<li><a href="#getInvolved">Get involved</a></li>
 						</ul>
 
 					</div>
@@ -65,7 +48,7 @@ $menu_sidebar = get_theme_mod('core_blog_header_menu_sidebar_display',true);
 			</nav>
 			
 			<?php if($search_icon!='' || $menu_sidebar!=''){?>
-			<nav class="main">
+			<!-- <nav class="main">
 				<ul>
 					<?php if($search_icon){ ?>
 					<li class="search">
@@ -84,22 +67,8 @@ $menu_sidebar = get_theme_mod('core_blog_header_menu_sidebar_display',true);
 					</li>
 					<?php }?>
 				</ul>
-			</nav>
+			</nav> 
 			<?php } ?>
+			-->
 		</header>
-		<!-- Modal -->
-		<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
 
-					<div class="modal-header">
-						<a href="#" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
-					</div>
-
-					<div class="modal-body">
-						<?php dynamic_sidebar( 'sidebar-2' ); ?>
-					</div>
-
-				</div><!-- modal-content -->
-			</div><!-- modal-dialog -->
-		</div><!-- modal -->

@@ -7,8 +7,8 @@
 				<div class="contant-general-block">
 					<span> <i>STRONG</i> <b>MUNICIPALITIES<br> -</b> <br> <i>STRONG</i>  <b>UKRAINE</b> </span>
 					<span><img src="/wp-content/themes/rebirth/assets/img/economicmap/image2.svg" alt="logo"><p>Economy of Trust <br> Ukraine Inc.</p></span>
-					<span><img src="/wp-content/themes/rebirth/assets/img/economicmap/image6.svg" alt="logo"></span>
-					<span><img src="/wp-content/themes/rebirth/assets/img/economicmap/image3.svg" alt="logo"><img src="/wp-content/themes/rebirth/assets/img/economicmap/mayors1.png" alt="logo"></span>
+					<span><img src="/wp-content/themes/rebirth/assets/img/economicmap/image7.svg" alt="logo"></span>
+					<span></span>
 				</div>
 				<div class="contant-world-wide-block"> <p>world-wide <br> partners</p>
 					<div class="world-wide-container">
@@ -87,6 +87,7 @@
     justify-content: center;
     align-items: center;
 	text-align: center;
+    gap: 20px;
     border-radius: 50%;
     background: #F1F1F1;
     box-shadow: 0px 4px 10px 0px rgba(1, 44, 101, 0.13), -2px 17px 17px 0px rgba(1, 44, 101, 0.11), -4px 39px 23px 0px rgba(1, 44, 101, 0.07), -7px 69px 28px 0px rgba(1, 44, 101, 0.02), -11px 108px 30px 0px rgba(1, 44, 101, 0.00);

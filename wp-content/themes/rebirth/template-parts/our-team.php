@@ -1,8 +1,7 @@
 <!-- our-team.php -->
-
 <section class="Our-team">
     <div class="Our-team__contant">
-        <h2><b>OUR</b> TEAM</h2>
+        <h2><b>OUR</b> TEAM LEADERS</h2>
         <div class="Our-team__cards-wrapper">
             <div class="Our-team__cards-slider" id="team-slider">
                 <?php
@@ -26,7 +25,7 @@
 
                         $footnotes = get_post_meta(get_the_ID(), 'footnotes', true);
                         if (!empty($footnotes)) {
-                            echo '<a href="' . esc_url($footnotes) . '"></a>';
+                            echo '<a href="' . esc_url($footnotes) . '" target="_blank"></a>';
                         }
                         echo '</div>';
                     }
@@ -37,51 +36,124 @@
                 ?>
             </div>
             <div class="slider-nav">
-                <button class="prev-slide" onclick="changeSlide(-1)">❮</button>
-                <button class="next-slide" onclick="changeSlide(1)">❯</button>
+                <button class="prev-slide">❮</button>
+                <button class="next-slide">❯</button>
             </div>
+            <div class="slider-pagination-team">
         </div>
     </div>
 
-
-	
-
-
-
-
     <script>
-    let currentTeamSlide = 0;
-    const teamSlider = document.querySelector('.Our-team__cards-slider');
-    const teamSlides = document.querySelectorAll('.team-member');
-    const teamSlideWidth = teamSlides[0].offsetWidth + 19; 
-    const maxTeamSlides = teamSlides.length;
+ document.addEventListener('DOMContentLoaded', function () {
+            const sliderContainer = document.querySelector('.Our-team__cards-slider');
+            const slides = document.querySelectorAll('.team-member');
+            const slideWidth = slides[0].offsetWidth + 19;
+            const gap = 43; // Расстояние между карточками
+            let visibleSlides;
 
-    function changeTeamSlide(direction) {
-        const newSlide = currentTeamSlide + direction;
-        if (newSlide >= 0 && newSlide < maxTeamSlides) {
-            currentTeamSlide = newSlide;
-            teamSlider.style.transform = `translateX(${-currentTeamSlide * (teamSlideWidth + 45)}px)`;
-        }
+            function updateVisibleSlides() {
+                // Получаем ширину экрана
+                const screenWidth = window.innerWidth;
 
-        updateTeamButtons();
-    }
+                // Устанавливаем значение visibleSlides в зависимости от ширины экрана
+                if (screenWidth >= 1280) {
+                    visibleSlides = 4;
+                } else if (screenWidth <= 500) {
+                    visibleSlides = 1;
+                } else {
+                    visibleSlides = 3;
+                }
+            }
 
-    function updateTeamButtons() {
-        const prevTeamButton = document.querySelector('.prev-slide');
-        const nextTeamButton = document.querySelector('.next-slide');
+            // Вызываем функцию для установки значения visibleSlides при загрузке страницы
+            updateVisibleSlides();
 
-        prevTeamButton.disabled = currentTeamSlide === 0;
-        nextTeamButton.disabled = currentTeamSlide + 1 >= maxTeamSlides - 2;
-    }
+            let currentSlide = 0;
+            let paginationItems = []; // Добавлен массив для хранения элементов пагинации
 
+            function updateSlider() {
+                const newPosition = -(currentSlide * (slideWidth + gap));
+                sliderContainer.style.transform = `translateX(${newPosition}px)`;
+            }
 
-    document.querySelector('.prev-slide').addEventListener('click', function () {
-        changeTeamSlide(-1);
-    });
+            function updateButtons() {
+                const prevButton = document.querySelector('.prev-slide');
+                const nextButton = document.querySelector('.next-slide');
 
-    document.querySelector('.next-slide').addEventListener('click', function () {
-        changeTeamSlide(1);
-    });
-</script>
+                // Отключаем кнопку Назад, если достигнут начало
+                prevButton.disabled = currentSlide === 0;
+
+                // Отключаем кнопку Вперед, если превышено максимальное количество кликов
+                nextButton.disabled = currentSlide >= slides.length - visibleSlides;
+
+                // Отключаем кнопку Вперед, если превышено максимальное количество кликов вправо
+                nextButton.disabled = currentSlide >= slides.length - visibleSlides;
+
+                // Отключаем кнопку Назад, если превышено максимальное количество кликов влево
+                prevButton.disabled = currentSlide <= 0;
+            }
+
+            function updatePagination() {
+                paginationItems.forEach((item, index) => {
+                    item.classList.toggle('active-slide', index === currentSlide);
+                });
+            }
+
+            function initPagination() {
+                const paginationContainer = document.querySelector('.slider-pagination-team');
+
+                for (let i = 0; i < slides.length - visibleSlides + 1; i++) {
+                    const paginationItem = document.createElement('span');
+                    paginationItem.className = 'pagination-item';
+                    paginationItem.addEventListener('click', function () {
+                        currentSlide = i;
+                        updateSlider();
+                        updatePagination();
+                        updateButtons();
+                    });
+                    paginationContainer.appendChild(paginationItem);
+                    paginationItems.push(paginationItem);
+                }
+
+                updatePagination();
+            }
+
+            function updateOnResize() {
+                // Обновляем значение visibleSlides при изменении размера окна
+                updateVisibleSlides();
+
+                // Пересчитываем слайды и обновляем кнопки
+                updateSlider();
+                updateButtons();
+                initPagination();
+            }
+
+            document.querySelector('.prev-slide').addEventListener('click', function () {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlider();
+                    updateButtons();
+                    updatePagination();
+                }
+            });
+
+            document.querySelector('.next-slide').addEventListener('click', function () {
+                if (currentSlide < slides.length - visibleSlides) {
+                    currentSlide++;
+                    updateSlider();
+                    updateButtons();
+                    updatePagination();
+                }
+            });
+
+            // Добавляем слушатель события изменения размера окна
+            window.addEventListener('resize', updateOnResize);
+
+            // Вызываем функции после определения currentSlide
+            updateButtons();
+            initPagination();
+        });
+
+    </script>
 
 </section>

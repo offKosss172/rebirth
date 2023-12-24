@@ -207,6 +207,10 @@ function core_blog_scripts()
         'jquery'
     ) , CORE_BLOG_S_VERSION, true);
 
+    wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', array(
+        'jquery'
+    ) , CORE_BLOG_S_VERSION, true);
+
     wp_style_add_data('core-blog-style', 'rtl', 'replace');
 
     if (is_singular() && comments_open() && get_option('thread_comments'))
