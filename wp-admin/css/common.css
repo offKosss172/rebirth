@@ -701,12 +701,6 @@ div#widgets-right .widget-top:hover,
 	color: #000;
 }
 
-.striped > tbody > :nth-child(odd),
-ul.striped > :nth-child(odd),
-.alternate {
-	background-color: #f6f7f7;
-}
-
 .bar {
 	background-color: #f0f0f1;
 	border-right-color: #4f94d4;

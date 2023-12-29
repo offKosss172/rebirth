@@ -1,11 +1,11 @@
 <!-- who-we-are.php -->
 
-<section  class="who-we-are" id="whoWeAre">
-    
+<section  class="who-we-are" >
+<span  class="ganchor-link" id="whoWeAre"></span>
     <h2><b> who</b> we are</h2>
     <div class="who-we-are-block">
         <div class="who-we-are__text-block">
-            <p>EoTU is connecting Ukraine with the world and is uniquely positioned to drive Ukraine's redevelopment to unprecedented heights. Key to our strategy is stimulating significant economic growth in Ukraine's industrial parks and regional economies over the next decade. We continue gaining momentum with solid commercial partnerships, a clear business vision to invigorate revitalization, innovative financial vehicles, vetted stakeholders, and a network of expert specialists. Region by region, we are identifying profitable opportunities, channeling foreign investment, and preparing local leaders to participate in Ukraine’s future development. At the same time, we are problem-solving for fraud and corruption while ensuring capital investment protection, stable legal jurisdiction, efficiency, and scalability. </p>
+            <p>EOTU is connecting Ukraine with the world and is uniquely positioned to drive Ukraine's redevelopment to unprecedented heights. Key to our strategy is stimulating significant economic growth in Ukraine's industrial parks and regional economies over the next decade. We continue gaining momentum with solid commercial partnerships, a clear business vision to invigorate revitalization, innovative financial vehicles, vetted stakeholders, and a network of expert specialists. Region by region, we are identifying profitable opportunities, channeling foreign investment, and preparing local leaders to participate in Ukraine’s future development. At the same time, we are problem-solving for fraud and corruption while ensuring capital investment protection, stable legal jurisdiction, efficiency, and scalability. </p>
             <div class="who-we-are__text-block-tittle">
                 <span></span>
                 <p>We are the only company rebuilding Ukraine from the ground up.</p>
@@ -100,7 +100,7 @@ text-transform: uppercase;
     background-position: center center;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 770px){
     .who-we-are	.who-we-are__visual-block-title h1 {
 	font-size: 18px;
     font-weight: 700;

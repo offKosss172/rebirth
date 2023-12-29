@@ -1,6 +1,6 @@
 <!-- world-projects.php -->
 
-
+</main> 
 <section class="world-projects">
 		<div class="world-projects__contant">
 			<div class="contant-big-block">
@@ -42,12 +42,11 @@
 				<div class="contant-economicunions-block" ><p>economic unions <br> project  <br>development <br> oficce</p></div>
 			</div>
 		</div>
-	</section>
 
-
-<style>
+        <style>
 .world-projects {
-    width: 100%;
+    width: 99%;
+    max-width: 1280px;
     height: 950px;
     background-image: url(/wp-content/themes/rebirth/assets/img/economicmap/worldmap.svg);
     background-size: contain;
@@ -56,11 +55,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-	margin-bottom: 20px;
+	margin: 20px auto 0;
 }
 .world-projects__contant {
     position: relative;
-	left: 5px;
+	left: 1px;
 	bottom: 15px;
     width: 37.38%;
     aspect-ratio: 1 / 1; 
@@ -260,4 +259,11 @@ margin: 0;
     transform: rotate(38.55deg);
     width: 37px;
 }
+
+
 </style>
+
+
+</section>
+<main> 
+

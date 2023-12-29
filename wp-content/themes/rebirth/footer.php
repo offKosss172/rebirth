@@ -1,7 +1,7 @@
 </div><!-- #wrapper -->
 	
     	<section class="footer">
-            <p class="copyright">copyright by Id</p>
+            <p class="copyright">copyright by me</p>
         </section>
     
     </div><!-- #page -->

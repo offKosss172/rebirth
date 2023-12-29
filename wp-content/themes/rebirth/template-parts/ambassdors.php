@@ -42,30 +42,34 @@
         </div>
     </div>
 
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
     const sliderContainer = document.querySelector('.Our-global-ambassdors__cards-slider');
     const slides = document.querySelectorAll('.team-member-amb');
     const slideWidth = slides[0].offsetWidth + 19;
-    const gap = 43; // Расстояние между карточками
+    const gap = 43;
+    let currentSlide = 0;
+    let paginationItems = [];
     let visibleSlides;
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const prevButton = document.querySelector('.prev-slide-a');
+        prevButton.disabled = true;
+    });
+
 
     function updateVisibleSlides() {
         const screenWidth = window.innerWidth;
 
         if (screenWidth >= 1280) {
             visibleSlides = 4;
-        } else if (screenWidth <= 500) {
-            visibleSlides = 1;
-        } else {
+        } else if (screenWidth >= 770 && screenWidth < 1280) {
             visibleSlides = 3;
+        } else {
+            visibleSlides = 1;
         }
+        
     }
-    
-    updateVisibleSlides();
-    let currentSlide = 0;
-    let paginationItems = [];
 
     function updateSlider() {
         const newPosition = -(currentSlide * (slideWidth + gap));
@@ -73,14 +77,11 @@
     }
 
     function updateButtons() {
-        console.log(visibleSlides)
         const prevButton = document.querySelector('.prev-slide-a');
         const nextButton = document.querySelector('.next-slide-a');
 
-        prevButton.disabled = currentSlide === 0;
-        nextButton.disabled = currentSlide >= slides.length - visibleSlides;
-
         prevButton.disabled = currentSlide <= 0;
+        nextButton.disabled = currentSlide >= slides.length - visibleSlides;
     }
 
     function updatePagination() {
@@ -91,6 +92,8 @@
 
     function initPagination() {
         const paginationContainer = document.querySelector('.slider-pagination-amb');
+
+        paginationContainer.innerHTML = '';
 
         for (let i = 0; i < slides.length - visibleSlides + 1; i++) {
             const paginationItem = document.createElement('span');
@@ -108,12 +111,10 @@
         updatePagination();
     }
 
-    function updateOnResize() {
-        updateVisibleSlides();
-        updateSlider();
-        updateButtons();
-        initPagination();
+    function handleScroll() {
+        updatePagination();
     }
+    
 
     document.querySelector('.prev-slide-a').addEventListener('click', function () {
         if (currentSlide > 0) {
@@ -133,16 +134,13 @@
         }
     });
 
-    window.addEventListener('resize', updateOnResize);
+    window.addEventListener('scroll', handleScroll);
 
-    // Вызываем функции после определения currentSlide
-    updateButtons();
+    updateVisibleSlides();
     initPagination();
+    updateButtons()
 });
 
-    </script>
-
-
-
+</script> 
 </section>
 

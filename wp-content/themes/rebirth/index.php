@@ -3,9 +3,10 @@ get_header();
 ?>
 
 <main> 
-	<section class="head-title">
+	<section class="head-title" >
+		<span  class="ganchor-link" id="headTitleSection"></span>
 		<h1>Rebirth of the Nation</h1>
-		<span></span>
+		<img src="/wp-content/themes/rebirth/assets/img/EoTUkraine.svg" alt="logo">
 		<div>
 			<p>Ukraine’s economic system with the <br> MUNICIPALITY 
 				at its center <br>
@@ -137,7 +138,8 @@ get_header();
 
 		</div>
 	</section>
-	<section class="what-we-do" id="whatWeDo">
+	<section class="what-we-do" >
+		<span  class="ganchor-link" id="whatWeDo"></span>
 		<h2> <b>what</b> we do</h2>
 		<div class="what-we-do__contant-text">
 		<p>At the heart of this historic project are Ukraine’s newly created economic unions. Our partnership has been hard at work persuading local leaders to band together to create synergies in the form of economic unions. Working together in groups the municipalities identify their own regional needs, resources, and opportunities. They provide standardized information in a systematic manner that will be appealing to foreign investors and grant providers alike. Thus far we have created 15 unions covering 63 municipalities representing close to 2 million people! This is a historic win-win for local governments and foreign investors. <br><br>
@@ -146,7 +148,8 @@ get_header();
 			We are also providing local businesses with a menu of services at very low monthly costs to them. UMEDA’s Business Development Office is providing its companies with access to the Mayors’ Club, international businesses, and the EOTU global network of experts in finance, law, technology, waste and recycling, construction, design, and more. As UMEDA Members and Participants these companies will utilize our digital platform to showcase their business to audiences all over the world. In the coming months we will be offering these companies services and expertise related to running and growing their business. Ukraine’s 1.8+ million businesses will benefit greatly from our joint efforts.</p>
 		</div>
 	</section>
-	<section class="our-impact" id="ourImpact">
+	<section class="our-impact" >
+		<span  class="ganchor-link" id="ourImpact"></span>
 		<h2> <b>our </b> impact</h2>
 		<div class="our-impact-contant">
 			<div class="our-impact-card">
@@ -172,7 +175,8 @@ get_header();
 			
 		</div>
 	</section>
-	<section class="get-involved" id="getInvolved">
+	<section class="get-involved" >
+		<span  class="ganchor-link" id="getInvolved"></span>
 		<h2> <b>get </b> involved</h2>
 		<div class="get-involved__contant-text">
 			<div class="contant-text__first-text"><p>EOTU Inc. is proud to present this handbook which will allow you as an Ambassador to understand the full nature of your position and to be better able to educate prospective partners about our company and our business model. <br><br>
@@ -184,7 +188,7 @@ get_header();
 						Whatever the motivation, investors will benefit from our personalized approach to entering Ukraine. No sensible investor would enter Ukraine, a nation at war with a history of fraud and corruption, without doing their due diligence and ensuring that the partners they are working with have problem solved for these headaches. </p>
 					<p>We are open to talking with any potential partner or investor about Ukraine's amazing opportunities and our one-of-a-kind business model that can get their company into Ukraine in an efficient manner. We know that our business model is working. This has been confirmed by numerous outside experts who themselves are looking for opportunities to invest in Ukraine. Our motto is, “Soon it will be too late to be early.” We truly believe that as the idea of doing business in Ukraine picks up speed every day. <br><br>
 						We stand ready to help you carry out your position as an Ambassador. EOTU is dedicated to doing whatever we can to facilitate relationships with prospective global clients and partners. Let our hard work and unique business model help you and your contacts by providing a one stop shop for everything related to entering Ukraine. <br><br>
-						<b> Please email Neil’s email:</b></p>
+						<b> Please email Neil’s email: <a href="mailto: neilc@eotukraine.com">neilc@eotukraine.com</a></b></p>
 				</div>
 			</div>
 		</div>

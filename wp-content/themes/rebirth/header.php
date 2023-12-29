@@ -4,10 +4,10 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -20,7 +20,7 @@ $menu_sidebar = get_theme_mod('core_blog_header_menu_sidebar_display',true);
 	<div id="wrapper">
 		<!-- Header -->
 		<header id="header" class="<?php if(is_user_logged_in() && is_customize_preview()) { ?> core-blog-customizer <?php } if(is_user_logged_in()) { ?>core-blog-header<?php }  ?>"> 
-			<div class="logo-burger-head"></div>
+			<div class="logo-burger-head"><img src="/wp-content/themes/rebirth/assets/img/EoTUkraine.svg" alt="logo"></div>
 			<nav id="site-navigation" class="core-blog-main-navigation">
 				<button class="toggle-button" data-toggle-target=".main-menu-modal" data-toggle-body-class="showing-main-menu-modal" aria-expanded="false" data-set-focus=".close-main-nav-toggle">
 				<div class="toggle-text"></div>
@@ -35,7 +35,7 @@ $menu_sidebar = get_theme_mod('core_blog_header_menu_sidebar_display',true);
 							<li><a href="#whoWeAre">Who we are</a></li>
 							<li><a href="#whatWeDo">What we do</a></li>
 						</ul>
-						<span></span>
+						<span><a href="#headTitleSection"></a></span>
 						<ul>
 							<li><a href="#ourImpact">Our impact</a></li>
 							<li><a href="#getInvolved">Get involved</a></li>
